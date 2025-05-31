@@ -16,8 +16,9 @@ jobs:
         with:
           go-version: 1.21
 
-      - name: Build
-        run: go build -o userService ./user-service/cmd/main.go
+      - name: Build user service
+        working-directory: ./user-service
+        run: go build -o userService ./cmd/main.go
 
       - name: Run tests
         run: go test ./user-service/internal/infrastructure/repositories
